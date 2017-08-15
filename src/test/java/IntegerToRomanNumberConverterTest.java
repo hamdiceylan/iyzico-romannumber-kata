@@ -43,18 +43,18 @@ public class IntegerToRomanNumberConverterTest {
         }};
 
         public String convert(int input) {
+            StringBuilder sb = new StringBuilder();
 
-            if (input == 4) {
-                return "IV";
-            } else if (input == 9) {
-                return "IX";
+            if (input == 4 || input == 9) {
+                sb.append("I");
+                sb.append(mapping.get(input+1));
+                return sb.toString();
             }
 
             if (input >= 5) {
                 return mapping.get(input);
             }
-            
-            StringBuilder sb = new StringBuilder();
+
             for (int i = 0; i < input; i++) {
                 sb.append("I");
             }
