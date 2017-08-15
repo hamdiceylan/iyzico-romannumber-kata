@@ -58,12 +58,12 @@ public class IntegerToRomanNumberConverterTest {
                 return sb.toString();
             }
 
-            if (input == 6) {
-                return "VI";
-            } else if (input == 7) {
-                return "VII";
-            } else if (input == 8) {
-                return "VIII";
+            if (input > 5 && input < 9) {
+                sb.append("V");
+                for (int i=input; i>5; i--) {
+                    sb.append("I");
+                }
+                return sb.toString();
             }
 
             if (input >= 5) {
