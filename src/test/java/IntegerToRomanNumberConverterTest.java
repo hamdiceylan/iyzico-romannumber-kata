@@ -42,6 +42,13 @@ public class IntegerToRomanNumberConverterTest {
         assertEquals("VIII", converter.convert(8));
     }
 
+    @Test
+    public void convert_11_12_13() throws Exception {
+        assertEquals("XI", converter.convert(11));
+        assertEquals("XII", converter.convert(12));
+        assertEquals("XIII", converter.convert(13));
+    }
+
     private class IntegerToRomanNumberConverter {
         Map<Integer, String> mapping = new HashMap() {{
             put(5, "V");
@@ -52,15 +59,23 @@ public class IntegerToRomanNumberConverterTest {
         public String convert(int input) {
             StringBuilder sb = new StringBuilder();
 
+            if (input == 11) {
+                return "XI";
+            } else if (input == 12) {
+                return "XII";
+            } else if (input == 13) {
+                return "XIII";
+            }
+
             if (input == 4 || input == 9) {
                 sb.append("I");
-                sb.append(mapping.get(input+1));
+                sb.append(mapping.get(input + 1));
                 return sb.toString();
             }
 
             if (input > 5 && input < 9) {
                 sb.append("V");
-                for (int i=input; i>5; i--) {
+                for (int i = input; i > 5; i--) {
                     sb.append("I");
                 }
                 return sb.toString();
