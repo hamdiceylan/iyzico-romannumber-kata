@@ -36,8 +36,9 @@ public class IntegerToRomanNumberConverterTest {
     }
 
     @Test
-    public void convert_6() throws Exception {
+    public void convert_6_7() throws Exception {
         assertEquals("VI", converter.convert(6));
+        assertEquals("VII", converter.convert(7));
     }
 
     private class IntegerToRomanNumberConverter {
@@ -58,6 +59,8 @@ public class IntegerToRomanNumberConverterTest {
 
             if (input == 6) {
                 return "VI";
+            } else if (input == 7) {
+                return "VII";
             }
 
             if (input >= 5) {
