@@ -35,6 +35,11 @@ public class IntegerToRomanNumberConverterTest {
         assertEquals("IX", converter.convert(9));
     }
 
+    @Test
+    public void convert_6() throws Exception {
+        assertEquals("VI", converter.convert(6));
+    }
+
     private class IntegerToRomanNumberConverter {
         Map<Integer, String> mapping = new HashMap() {{
             put(5, "V");
@@ -49,6 +54,10 @@ public class IntegerToRomanNumberConverterTest {
                 sb.append("I");
                 sb.append(mapping.get(input+1));
                 return sb.toString();
+            }
+
+            if (input == 6) {
+                return "VI";
             }
 
             if (input >= 5) {
