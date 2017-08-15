@@ -13,10 +13,11 @@ public class IntegerToRomanNumberConverterTest {
     }
 
     @Test
-    public void convert_5_10() throws Exception {
+    public void convert_5_10_50() throws Exception {
         IntegerToRomanNumberConverter converter = new IntegerToRomanNumberConverter();
         assertEquals("V", converter.convert(5));
         assertEquals("X", converter.convert(10));
+        assertEquals("L", converter.convert(50));
     }
 
 
@@ -26,6 +27,8 @@ public class IntegerToRomanNumberConverterTest {
                 return "V";
             } else if (input == 10) {
                 return "X";
+            } else if (input == 50) {
+                return "L";
             }
 
             StringBuilder sb = new StringBuilder();
