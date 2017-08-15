@@ -30,8 +30,9 @@ public class IntegerToRomanNumberConverterTest {
     }
 
     @Test
-    public void convert_4() throws Exception {
+    public void convert_4_9() throws Exception {
         assertEquals("IV", converter.convert(4));
+        assertEquals("IX", converter.convert(9));
     }
 
     private class IntegerToRomanNumberConverter {
@@ -42,14 +43,17 @@ public class IntegerToRomanNumberConverterTest {
         }};
 
         public String convert(int input) {
-            if (input >= 5) {
-                return mapping.get(input);
-            }
 
             if (input == 4) {
                 return "IV";
+            } else if (input == 9) {
+                return "IX";
             }
 
+            if (input >= 5) {
+                return mapping.get(input);
+            }
+            
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < input; i++) {
                 sb.append("I");
